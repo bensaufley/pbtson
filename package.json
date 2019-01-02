@@ -1,0 +1,22 @@
+{
+  "name": "pbtson",
+  "version": "1.0.0",
+  "description": "Protobuf to TypeScript .d.ts for JSON objects generator",
+  "main": "index.js",
+  "license": "MIT",
+  "bin": {
+    "protoc-gen-pbtson": "./bin/protoc-gen-pbtson"
+  },
+  "dependencies": {
+    "protoc-plugin": "^0.0.6"
+  },
+  "devDependencies": {
+    "@types/google-protobuf": "^3.2.7",
+    "eslint": "^5.11.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  },
+  "scripts": {
+    "lint": "eslint ."
+  }
+}
