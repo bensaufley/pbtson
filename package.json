@@ -8,15 +8,20 @@
     "protoc-gen-pbtson": "./bin/protoc-gen-pbtson"
   },
   "dependencies": {
-    "protoc-plugin": "^0.0.6"
+    "google-protobuf": "^3.6.1",
+    "stream-to-promise": "^2.2.0"
   },
   "devDependencies": {
     "@types/google-protobuf": "^3.2.7",
-    "eslint": "^5.11.1",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0"
+    "@types/node": "^10.12.18",
+    "@types/stream-to-promise": "^2.2.0",
+    "tslint": "^5.12.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^3.2.2"
   },
   "scripts": {
-    "lint": "eslint ."
+    "build": "tsc -p ./src/tsconfig.json",
+    "lint": "tslint \"./src/**/*.ts\"",
+    "typecheck": "tsc --noEmit -p ./src/tsconfig.json"
   }
 }

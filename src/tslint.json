@@ -1,0 +1,12 @@
+{
+  "extends": ["tslint-config-airbnb"],
+  "linterOptions": {
+    "exclude": ["node_modules/**"]
+  },
+  "rules": {
+    "max-line-length": [true, 100],
+    "ter-arrow-parens": [true, "always"],
+    "trailing-comma": [true, {"multiline": "always", "singleline": "never", "esSpecCompliant": true }],
+    "variable-name": [true, "check-format", "allow-pascal-case", "allow-leading-underscore"]
+  }
+}
