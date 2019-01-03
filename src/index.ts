@@ -29,9 +29,13 @@ const CodGenRes = (output = process.stdout) => (files: CodeGeneratorFile[]) => {
   output.write(Buffer.from(out.serializeBinary()));
 };
 
-export default async () => {
+export default async (
+  input: NodeJS.ReadStream = process.stdin,
+  output: NodeJS.WriteStream = process.stdout,
+  errstream: NodeJS.WriteStream = process.stderr,
+) => {
   try {
-    const req = (await CodeGenReq()).toObject();
+    const req = (await CodeGenReq(input)).toObject();
     const protos = req.protoFileList.filter((p) => req.fileToGenerateList.indexOf(p.name!) !== -1);
 
     const files: CodeGeneratorFile[] = [];
@@ -143,10 +147,10 @@ export default async () => {
       });
     });
 
-    await CodGenRes()(files);
+    await CodGenRes(output)(files);
   } catch (err) {
     const out = new CodeGeneratorResponse();
     out.setError(err.toString());
-    process.stdout.write(Buffer.from(out.serializeBinary()));
+    output.write(Buffer.from(out.serializeBinary()));
   }
 };

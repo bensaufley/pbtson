@@ -1,2 +1,4 @@
 src
 import-sorter.json
+test
+tsconfig.json
